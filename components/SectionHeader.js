@@ -1,27 +1,20 @@
 'use strict';
 
-import React, {
-  Component,
-  PropTypes
-} from 'react';
-import ReactNative, {
-  StyleSheet,
-  View,
-  Text,
-  NativeModules
-} from 'react-native';
+var React = require('react');
+var ReactNative = require('react-native');
+var {Component, PropTypes} = React;
+var {StyleSheet, View, Text, NativeModules} = ReactNative;
 
-const { UIManager } = NativeModules;
-
-export default class SectionHeader extends Component {
+var UIManager = NativeModules.UIManager;
+class SectionHeader extends Component {
 
   componentDidMount() {
     this.props.updateTag && this.props.updateTag(ReactNative.findNodeHandle(this.refs.view), this.props.sectionId);
   }
 
   render() {
-    const SectionComponent = this.props.component;
-    const content = SectionComponent ?
+    var SectionComponent = this.props.component;
+    var content = SectionComponent ?
       <SectionComponent {...this.props} /> :
       <Text style={styles.text}>{this.props.title}</Text>;
 
@@ -33,7 +26,7 @@ export default class SectionHeader extends Component {
   }
 }
 
-const styles = StyleSheet.create({
+var styles = StyleSheet.create({
   container: {
     backgroundColor:'#f8f8f8',
     borderTopWidth: 1,
@@ -66,4 +59,7 @@ SectionHeader.propTypes = {
    * A function used to propagate the root nodes handle back to the parent
    */
   updateTag: PropTypes.func
+
 };
+
+module.exports = SectionHeader;

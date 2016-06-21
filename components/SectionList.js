@@ -189,11 +189,13 @@ const styles = StyleSheet.create({
   },
 
   text: {
+    fontSize: 10,
     fontWeight: '700',
     color: '#008fff'
   },
 
   inactivetext: {
+    fontSize: 10,
     fontWeight: '700',
     color: '#CCCCCC'
   }
